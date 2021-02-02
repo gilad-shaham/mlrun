@@ -123,7 +123,7 @@ DEFAULT_IMAGES += $(MLRUN_BASE_IMAGE_NAME_TAGGED)
 base: mlrun ## Build base docker image
 	$(MLRUN_BASE_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
-		--file dockerfiles/base/Dockerfile \
+		--file dockerfiles/base/dockerfile \
 		--build-arg FROM_IMAGE=$(MLRUN_IMAGE_NAME_TAGGED) \
 		--build-arg MLRUN_MLUTILS_GITHUB_TAG=$(MLRUN_MLUTILS_GITHUB_TAG) \
 		--build-arg MLRUN_MLUTILS_CACHE_DATE=$(MLRUN_CACHE_DATE) \
