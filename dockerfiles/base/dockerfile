@@ -1,0 +1,29 @@
+ARG FROM_IMAGE
+
+FROM ${FROM_IMAGE}
+
+ENV PIP_NO_CACHE_DIR=1
+
+LABEL org="iguazio.com"
+
+RUN apt update && apt install -y \
+    build-essential \
+    cmake \
+    curl \
+    graphviz \
+    && apt clean \
+    && apt autoremove \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY ./dockerfiles/base/requirements.txt /tmp/requirements.txt
+COPY ./dockerfiles/base/requirements-platform-compatible.txt /tmp/requirements-platform-compatible.txt
+
+RUN python -m pip install -r /tmp/requirements-platform-compatible.txt -r /tmp/requirements.txt \
+    && python -m pip install git+https://github.com/v3io/PyHive.git@v0.6.999 \
+    && python -m pip install -i https://test.pypi.org/simple/ v3io-generator \
+    && rm -f /tmp/requirements-platform-compatible.txt /tmp/requirements.txt
+
+ARG MLRUN_MLUTILS_GITHUB_TAG=development
+ARG MLRUN_MLUTILS_CACHE_DATE=initial
+RUN python -m pip install \
+    git+https://github.com/mlrun/mlutils.git@${MLRUN_MLUTILS_GITHUB_TAG}

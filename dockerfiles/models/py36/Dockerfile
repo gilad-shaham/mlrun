@@ -71,7 +71,7 @@ RUN HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITH_PYTORCH=1 \
 
 WORKDIR /mlrun
 
-COPY ./dockerfiles/models/requirements.txt ./
+COPY ./dockerfiles/models/py36/requirements.txt ./
 
 RUN python -m pip install -r requirements.txt
 

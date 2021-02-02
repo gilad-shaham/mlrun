@@ -120,11 +120,11 @@ MLRUN_BASE_CACHE_IMAGE_PUSH_COMMAND := $(if $(MLRUN_DOCKER_CACHE_FROM_TAG),docke
 DEFAULT_IMAGES += $(MLRUN_BASE_IMAGE_NAME_TAGGED)
 
 .PHONY: base
-base: update-version-file ## Build base docker image
+base: mlrun ## Build base docker image
 	$(MLRUN_BASE_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
 		--file dockerfiles/base/Dockerfile \
-		--build-arg MLRUN_PYTHON_VERSION=$(MLRUN_PYTHON_VERSION) \
+		--build-arg FROM_IMAGE=$(MLRUN_IMAGE_NAME_TAGGED) \
 		--build-arg MLRUN_MLUTILS_GITHUB_TAG=$(MLRUN_MLUTILS_GITHUB_TAG) \
 		--build-arg MLRUN_MLUTILS_CACHE_DATE=$(MLRUN_CACHE_DATE) \
 		$(MLRUN_BASE_IMAGE_DOCKER_CACHE_FROM_FLAG) \
@@ -148,7 +148,7 @@ DEFAULT_IMAGES += $(MLRUN_LEGACY_BASE_IMAGE_NAME_TAGGED)
 base-legacy: update-version-file ## Build base legacy docker image
 	$(MLRUN_LEGACY_BASE_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
-		--file dockerfiles/base/Dockerfile \
+		--file dockerfiles/base/dockerfile \
 		--build-arg MLRUN_PYTHON_VERSION=$(MLRUN_LEGACY_ML_PYTHON_VERSION) \
 		--build-arg MLRUN_MLUTILS_GITHUB_TAG=$(MLRUN_MLUTILS_GITHUB_TAG) \
 		--build-arg MLRUN_MLUTILS_CACHE_DATE=$(MLRUN_CACHE_DATE) \
@@ -170,12 +170,11 @@ MLRUN_MODELS_CACHE_IMAGE_PUSH_COMMAND := $(if $(MLRUN_DOCKER_CACHE_FROM_TAG),doc
 DEFAULT_IMAGES += $(MLRUN_MODELS_IMAGE_NAME_TAGGED)
 
 .PHONY: models
-models: update-version-file ## Build models docker image
+models: base ## Build models docker image
 	$(MLRUN_MODELS_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
-		--file dockerfiles/models/Dockerfile \
-		--build-arg MLRUN_MLUTILS_GITHUB_TAG=$(MLRUN_MLUTILS_GITHUB_TAG) \
-		--build-arg MLRUN_MLUTILS_CACHE_DATE=$(MLRUN_CACHE_DATE) \
+		--file dockerfiles/models/dockerfile \
+		--build-arg FROM_IMAGE=$(MLRUN_BASE_IMAGE_NAME_TAGGED) \
 		$(MLRUN_MODELS_IMAGE_DOCKER_CACHE_FROM_FLAG) \
 		--tag $(MLRUN_MODELS_IMAGE_NAME_TAGGED) .
 
@@ -221,7 +220,7 @@ DEFAULT_IMAGES += $(MLRUN_MODELS_GPU_IMAGE_NAME_TAGGED)
 models-gpu: update-version-file ## Build models-gpu docker image
 	$(MLRUN_MODELS_GPU_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
-		--file dockerfiles/models-gpu/Dockerfile \
+		--file dockerfiles/models-gpu/dockerfile \
 		--build-arg MLRUN_MLUTILS_GITHUB_TAG=$(MLRUN_MLUTILS_GITHUB_TAG) \
 		--build-arg MLRUN_MLUTILS_CACHE_DATE=$(MLRUN_CACHE_DATE) \
 		$(MLRUN_MODELS_GPU_IMAGE_DOCKER_CACHE_FROM_FLAG) \
@@ -269,7 +268,7 @@ DEFAULT_IMAGES += $(MLRUN_IMAGE_NAME_TAGGED)
 mlrun: update-version-file ## Build mlrun docker image
 	$(MLRUN_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
-		--file dockerfiles/mlrun/Dockerfile \
+		--file dockerfiles/mlrun/dockerfile \
 		--build-arg MLRUN_PYTHON_VERSION=$(MLRUN_PYTHON_VERSION) \
 		$(MLRUN_IMAGE_DOCKER_CACHE_FROM_FLAG) \
 		--tag $(MLRUN_IMAGE_NAME_TAGGED) .
