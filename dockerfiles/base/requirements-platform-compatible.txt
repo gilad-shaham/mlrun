@@ -26,3 +26,5 @@ v3io~=0.5.7
 dataclasses~=0.6
 v3io_frames~=0.8.14
 nuclio-jupyter~=0.8.9
+
+numpy~=1.19.2

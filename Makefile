@@ -120,7 +120,7 @@ MLRUN_BASE_CACHE_IMAGE_PUSH_COMMAND := $(if $(MLRUN_DOCKER_CACHE_FROM_TAG),docke
 DEFAULT_IMAGES += $(MLRUN_BASE_IMAGE_NAME_TAGGED)
 
 .PHONY: base
-base: mlrun ## Build base docker image
+base: update-version-file ## Build base docker image
 	$(MLRUN_BASE_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
 		--file dockerfiles/base/dockerfile \
@@ -170,7 +170,7 @@ MLRUN_MODELS_CACHE_IMAGE_PUSH_COMMAND := $(if $(MLRUN_DOCKER_CACHE_FROM_TAG),doc
 DEFAULT_IMAGES += $(MLRUN_MODELS_IMAGE_NAME_TAGGED)
 
 .PHONY: models
-models: base ## Build models docker image
+models: update-version-file ## Build models docker image
 	$(MLRUN_MODELS_CACHE_IMAGE_PULL_COMMAND)
 	docker build \
 		--file dockerfiles/models/dockerfile \
