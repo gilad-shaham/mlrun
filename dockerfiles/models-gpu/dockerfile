@@ -66,26 +66,12 @@ RUN conda config --add channels conda-forge && \
     conda config --add channels anaconda && \
     conda update -n base conda && \
     conda install -n base \
-        bokeh \
         cmake \
         cudatoolkit=10.1 \
         cython \
-        fsspec \
-        lifelines \
-        matplotlib \
-        numba \
-        numpy \
-        pandas \
-        pyarrow \
-        pytest \
         scikit-build \
-        scikit-learn \
-        scikit-optimize \
-        scikit-plot \
-        scipy \
-        seaborn \
         tensorflow-gpu \
-        wrapt
+        --file requirements.txt
 
 RUN conda install -n base -c rapidsai -c nvidia \
     -c anaconda -c conda-forge -c defaults rapids=0.17 python=3.7
@@ -98,7 +84,7 @@ RUN python -m pip install --upgrade pip~=20.2.0
     #   possible (should be safe to remove if it works ~5 times without it)
 RUN ldconfig /usr/local/cuda-10.1/targets/x86_64-linux/lib/stubs && \
     MAKEFLAGS="-j1" HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITH_PYTORCH=1 \
-        python -m pip install 'horovod~=0.21.1' && \
+        python -m pip install 'horovod~=0.20.0' && \
     ldconfig
 
 RUN conda clean -aqy

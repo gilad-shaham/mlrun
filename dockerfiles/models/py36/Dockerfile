@@ -10,6 +10,7 @@ RUN apt update -qqq \
     && apt install -yq \
     build-essential \
     cmake \
+    ca-certificates \
     curl \
     graphviz \
     libboost-dev \

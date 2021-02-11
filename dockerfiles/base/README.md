@@ -2,115 +2,225 @@
 
 base image for file acquisition, compression, and other simple utilities
 
-currently Python 3.8.x
+currently Python 3.7.x
 
-`mlrun 0.4.6`
-`pyarrow 0.16`
-`pandas 1.0.3`
+- `mlrun` 0.6.0
+- `pyarrow` 0.16
+- `pandas` 1.0.3
+- `numpy` 0.19.2
+- `xgboost` 1.2.1
+- `transformers` 4.2.2
+- `dask` 2.3.0
 
-no conda
+## Full List of Packages
 
-```
-root@b25827d9c933:/# pip list
-Package                  Version   
------------------------- ----------
-aiohttp                  3.6.2     
-argo-models              2.2.1a0   
-async-timeout            3.0.1     
-attrs                    19.3.0    
-backcall                 0.1.0     
-bleach                   3.1.4     
-boto3                    1.12.31   
-botocore                 1.15.31   
-cachetools               4.0.0     
-certifi                  2019.11.28
-cffi                     1.14.0    
-chardet                  3.0.4     
-Click                    7.0       
-cloudpickle              1.1.1     
-cryptography             2.8       
-decorator                4.4.2     
-defusedxml               0.6.0     
-Deprecated               1.2.7     
-docutils                 0.15.2    
-entrypoints              0.3       
-gitdb                    4.0.2     
-GitPython                3.1.0     
-google-api-core          1.16.0    
-google-auth              1.12.0    
-google-cloud-core        1.3.0     
-google-cloud-storage     1.26.0    
-google-resumable-media   0.5.0     
-googleapis-common-protos 1.51.0    
-idna                     2.9       
-ipykernel                5.2.0     
-ipython                  7.13.0    
-ipython-genutils         0.2.0     
-jedi                     0.16.0    
-Jinja2                   2.11.1    
-jmespath                 0.9.5     
-json5                    0.9.4     
-jsonschema               3.2.0     
-jupyter-client           6.1.2     
-jupyter-core             4.6.3     
-jupyterlab               2.0.1     
-jupyterlab-server        1.0.7     
-kfp                      0.3.0     
-kfp-server-api           0.3.0     
-kubernetes               11.0.0    
-MarkupSafe               1.1.1     
-mistune                  0.8.4     
-mlrun                    0.4.6     
-multidict                4.7.5     
-nbconvert                5.6.1     
-nbformat                 5.0.4     
-nest-asyncio             1.3.2     
-notebook                 6.0.3     
-nuclio-jupyter           0.8.2     
-numpy                    1.18.2    
-oauthlib                 3.1.0     
-pandas                   1.0.3     
-pandocfilters            1.4.2     
-parso                    0.6.2     
-pexpect                  4.8.0     
-pickleshare              0.7.5     
-pip                      20.0.2    
-prometheus-client        0.7.1     
-prompt-toolkit           3.0.5     
-protobuf                 3.11.3    
-ptyprocess               0.6.0     
-pyarrow                  0.16.0    
-pyasn1                   0.4.8     
-pyasn1-modules           0.2.8     
-pycparser                2.20      
-Pygments                 2.6.1     
-PyJWT                    1.7.1     
-pyrsistent               0.16.0    
-python-dateutil          2.8.1     
-pytz                     2019.3    
-PyYAML                   5.3.1     
-pyzmq                    19.0.0    
-requests                 2.23.0    
-requests-oauthlib        1.3.0     
-requests-toolbelt        0.9.1     
-rsa                      4.0       
-s3transfer               0.3.3     
-Send2Trash               1.5.0     
-setuptools               46.1.3    
-six                      1.14.0    
-smmap                    3.0.1     
-SQLAlchemy               1.3.15    
-strip-hints              0.1.8     
-tabulate                 0.8.3     
-terminado                0.8.3     
-testpath                 0.4.4     
-tornado                  6.0.4     
-traitlets                4.3.3     
-urllib3                  1.24.3    
-wcwidth                  0.1.9     
-webencodings             0.5.1     
-websocket-client         0.57.0    
-wheel                    0.34.2    
-wrapt                    1.12.1    
-yarl                     1.4.2 
-```
+All packages (including dependencies):
+
+| Package                         | Version     |
+|---------------------------------|-------------|
+| absl-py                         | 0.11.0      |
+| aiohttp                         | 3.7.3       |
+| alembic                         | 1.5.4       |
+| argon2-cffi                     | 20.1.0      |
+| astor                           | 0.8.1       |
+| async-generator                 | 1.10        |
+| async-timeout                   | 3.0.1       |
+| attrs                           | 20.3.0      |
+| autograd                        | 1.3         |
+| autograd-gamma                  | 0.5.0       |
+| azure-core                      | 1.10.0      |
+| azure-storage-blob              | 12.7.1      |
+| backcall                        | 0.2.0       |
+| bleach                          | 3.3.0       |
+| blosc                           | 1.7.0       |
+| bokeh                           | 2.2.3       |
+| boto3                           | 1.16.63     |
+| botocore                        | 1.19.63     |
+| cachetools                      | 4.2.1       |
+| certifi                         | 2020.12.5   |
+| cffi                            | 1.14.4      |
+| chardet                         | 3.0.4       |
+| click                           | 7.1.2       |
+| cloudpickle                     | 1.6.0       |
+| combo                           | 0.1.2       |
+| cryptography                    | 3.3.1       |
+| cycler                          | 0.10.0      |
+| dask                            | 2.30.0      |
+| dask-glm                        | 0.2.0       |
+| dask-kubernetes                 | 0.11.0      |
+| dask-ml                         | 1.7.0       |
+| dataclasses                     | 0.6         |
+| decorator                       | 4.4.2       |
+| defusedxml                      | 0.6.0       |
+| Deprecated                      | 1.2.11      |
+| distributed                     | 2.30.1      |
+| entrypoints                     | 0.3         |
+| fastapi                         | 0.62.0      |
+| filelock                        | 3.0.12      |
+| formulaic                       | 0.2.1       |
+| fsspec                          | 0.8.5       |
+| future                          | 0.18.2      |
+| gitdb                           | 4.0.5       |
+| GitPython                       | 3.1.12      |
+| gnureadline                     | 8.0.0       |
+| google-api-core                 | 1.25.1      |
+| google-auth                     | 1.25.0      |
+| google-auth-oauthlib            | 0.4.2       |
+| google-cloud-core               | 1.5.0       |
+| google-cloud-storage            | 1.35.1      |
+| google-crc32c                   | 1.1.2       |
+| google-resumable-media          | 1.2.0       |
+| googleapis-common-protos 1.52.0 |             |
+| graphviz                        | 0.14.2      |
+| grpcio                          | 1.30.0      |
+| grpcio-tools                    | 1.30.0      |
+| HeapDict                        | 1.0.1       |
+| humanfriendly                   | 8.2         |
+| idna                            | 2.10        |
+| imageio                         | 2.9.0       |
+| importlib-metadata              | 3.4.0       |
+| iniconfig                       | 1.1.1       |
+| interface-meta                  | 1.2.2       |
+| ipykernel                       | 5.4.3       |
+| ipython                         | 7.16.1      |
+| ipython-genutils                | 0.2.0       |
+| isodate                         | 0.6.0       |
+| jedi                            | 0.18.0      |
+| Jinja2                          | 2.11.3      |
+| jmespath                        | 0.10.0      |
+| joblib                          | 1.0.0       |
+| jsonschema                      | 3.2.0       |
+| jupyter-client                  | 6.1.11      |
+| jupyter-core                    | 4.7.1       |
+| jupyterlab-pygments             | 0.1.2       |
+| kfp                             | 1.0.4       |
+| kfp-server-api                  | 1.3.0       |
+| kiwisolver                      | 1.3.1       |
+| kubernetes                      | 11.0.0      |
+| kubernetes-asyncio              | 12.0.1      |
+| lifelines                       | 0.25.8      |
+| lightgbm                        | 2.3.1       |
+| llvmlite                        | 0.35.0      |
+| locket                          | 0.2.1       |
+| lz4                             | 3.1.3       |
+| Mako                            | 1.1.4       |
+| Markdown                        | 3.3.3       |
+| MarkupSafe                      | 1.1.1       |
+| matplotlib                      | 3.3.4       |
+| mergedeep                       | 1.3.1       |
+| mistune                         | 0.8.4       |
+| mlrun                           | 0.6.0rc13   |
+| mlutils                         | 0.3.0       |
+| mpmath                          | 1.1.0       |
+| msgpack                         | 1.0.2       |
+| msrest                          | 0.6.21      |
+| multidict                       | 5.1.0       |
+| multipledispatch                | 0.6.0       |
+| nbclient                        | 0.5.1       |
+| nbconvert                       | 6.0.7       |
+| nbformat                        | 5.1.2       |
+| nest-asyncio                    | 1.5.1       |
+| networkx                        | 2.5         |
+| notebook                        | 6.2.0       |
+| nuclio-jupyter                  | 0.8.9       |
+| numba                           | 0.52.0      |
+| numexpr                         | 2.7.2       |
+| numpy                           | 1.19.5      |
+| oauthlib                        | 3.1.0       |
+| orjson                          | 3.3.1       |
+| packaging                       | 20.9        |
+| pandas                          | 1.2.1       |
+| pandocfilters                   | 1.4.3       |
+| parso                           | 0.8.1       |
+| partd                           | 1.1.0       |
+| patsy                           | 0.5.1       |
+| pexpect                         | 4.8.0       |
+| pickleshare                     | 0.7.5       |
+| Pillow                          | 8.1.0       |
+| pip                             | 20.2.4      |
+| plotly                          | 4.14.3      |
+| pluggy                          | 0.13.1      |
+| prometheus-client               | 0.9.0       |
+| prompt-toolkit                  | 3.0.14      |
+| protobuf                        | 3.14.0      |
+| psutil                          | 5.8.0       |
+| ptyprocess                      | 0.7.0       |
+| py                              | 1.10.0      |
+| pyaml                           | 20.4.0      |
+| pyarrow                         | 1.0.1       |
+| pyasn1                          | 0.4.8       |
+| pyasn1-modules                  | 0.2.8       |
+| pycparser                       | 2.20        |
+| pydantic                        | 1.7.3       |
+| Pygments                        | 2.7.4       |
+| PyHive                          | 0.6.1.dev0  |
+| PyMySQL                         | 0.10.1      |
+| pyod                            | 0.8.6       |
+| pyparsing                       | 2.4.7       |
+| pyrsistent                      | 0.17.3      |
+| pytest                          | 6.2.2       |
+| python-dateutil                 | 2.8.1       |
+| python-editor                   | 1.0.4       |
+| pytz                            | 2021.1      |
+| PyWavelets                      | 1.1.1       |
+| PyYAML                          | 5.4.1       |
+| pyzmq                           | 22.0.2      |
+| regex                           | 2020.11.13  |
+| requests                        | 2.25.1      |
+| requests-oauthlib               | 1.3.0       |
+| requests-toolbelt               | 0.9.1       |
+| retrying                        | 1.3.3       |
+| rsa                             | 4.7         |
+| s3transfer                      | 0.3.4       |
+| sacremoses                      | 0.0.43      |
+| scikit-image                    | 0.17.2      |
+| scikit-learn                    | 0.23.2      |
+| scikit-multiflow                | 0.5.3       |
+| scikit-optimize                 | 0.8.1       |
+| scikit-plot                     | 0.3.7       |
+| scipy                           | 1.4.1       |
+| seaborn                         | 0.10.1      |
+| semver                          | 2.13.0      |
+| Send2Trash                      | 1.5.0       |
+| setuptools                      | 53.0.0      |
+| six                             | 1.15.0      |
+| smmap                           | 3.0.5       |
+| sortedcontainers                | 2.3.0       |
+| SQLAlchemy                      | 1.3.23      |
+| starlette                       | 0.13.6      |
+| statsmodels                     | 0.12.2      |
+| strip-hints                     | 0.1.9       |
+| suod                            | 0.0.6       |
+| sympy                           | 1.6.2       |
+| tabulate                        | 0.8.3       |
+| tblib                           | 1.7.0       |
+| tensorboard                     | 2.2.2       |
+| tensorboard-plugin-wit          | 1.8.0       |
+| terminado                       | 0.9.2       |
+| testpath                        | 0.4.4       |
+| threadpoolctl                   | 2.1.0       |
+| tifffile                        | 2021.2.1    |
+| tokenizers                      | 0.9.4       |
+| toml                            | 0.10.2      |
+| toolz                           | 0.11.1      |
+| tornado                         | 6.1         |
+| tqdm                            | 4.56.0      |
+| traitlets                       | 5.0.5       |
+| transformers                    | 4.2.2       |
+| typing-extensions               | 3.7.4.3     |
+| ujson                           | 4.0.2       |
+| urllib3                         | 1.26.3      |
+| v3io                            | 0.5.7       |
+| v3io-frames                     | 0.8.14      |
+| v3io-generator                  | 0.0.27.dev0 |
+| wcwidth                         | 0.2.5       |
+| webencodings                    | 0.5.1       |
+| websocket-client                | 0.57.0      |
+| Werkzeug                        | 1.0.1       |
+| wheel                           | 0.36.2      |
+| wrapt                           | 1.12.1      |
+| xgboost                         | 1.2.1       |
+| yarl                            | 1.6.3       |
+| yellowbrick                     | 1.2.1       |
+| zict                            | 2.0.0       |
+| zipp                            | 3.4.0       |
