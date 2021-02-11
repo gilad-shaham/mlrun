@@ -1,7 +1,6 @@
 bokeh~=2.2.3
 cloudpickle~=1.6.0
 fsspec~=0.8.0
-gnureadline~=8.0.0
 lifelines~=0.25.8
 msgpack~=1.0.2
 plotly~=4.14.3

@@ -62,6 +62,9 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
+# do the dask package pinning with pip / faster
+COPY ./dockerfiles/models-gpu/requirements.txt /tmp/requirements.txt
+
 RUN conda config --add channels conda-forge && \
     conda config --add channels anaconda && \
     conda update -n base conda && \
@@ -69,9 +72,10 @@ RUN conda config --add channels conda-forge && \
         cmake \
         cudatoolkit=10.1 \
         cython \
+        graphviz \
         scikit-build \
         tensorflow-gpu \
-        --file requirements.txt
+        --file /tmp/requirements.txt
 
 RUN conda install -n base -c rapidsai -c nvidia \
     -c anaconda -c conda-forge -c defaults rapids=0.17 python=3.7
@@ -90,12 +94,12 @@ RUN ldconfig /usr/local/cuda-10.1/targets/x86_64-linux/lib/stubs && \
 RUN conda clean -aqy
 
 # do the dask package pinning with pip / faster
-COPY ./dockerfiles/models-gpu/requirements.txt /tmp/requirements.txt
+#COPY ./dockerfiles/models-gpu/requirements.txt /tmp/requirements.txt
 
-RUN python -m pip install -r /tmp/requirements.txt \
-    && python -m pip install git+https://github.com/v3io/PyHive.git@v0.6.999 \
-    && python -m pip install -i https://test.pypi.org/simple/ v3io-generator \
-    && rm -f /tmp/requirements.txt
+#RUN python -m pip install -r /tmp/requirements.txt \
+#    && python -m pip install git+https://github.com/v3io/PyHive.git@v0.6.999 \
+#    && python -m pip install -i https://test.pypi.org/simple/ v3io-generator \
+#    && rm -f /tmp/requirements.txt
 
 WORKDIR /tmp/mlrun
 COPY . /tmp/mlrun

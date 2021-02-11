@@ -3,7 +3,7 @@ aiohttp==3.7.3
 alembic==1.5.4
 argon2-cffi==20.1.0
 astor==0.8.1
-async-generator==1.10
+async_generator==1.10
 async-timeout==3.0.1
 attrs==20.3.0
 autograd==1.3
@@ -12,7 +12,7 @@ azure-core==1.10.0
 azure-storage-blob==12.7.1
 backcall==0.2.0
 bleach==3.3.0
-blosc==1.7.0
+python-blosc==1.7.0
 bokeh==2.2.3
 boto3==1.16.63
 botocore==1.19.63
@@ -22,7 +22,7 @@ cffi==1.14.4
 chardet==3.0.4
 click==7.1.2
 cloudpickle==1.6.0
-combo==0.1.2
+#combo==0.1.2
 cryptography==3.3.1
 cycler==0.10.0
 dask==2.30.0
@@ -37,48 +37,53 @@ distributed==2.30.1
 entrypoints==0.3
 fastapi==0.62.0
 filelock==3.0.12
-formulaic==0.2.1
+# 0.2.3 instead of 0.2.1 in pypi
+formulaic==0.2.3
 fsspec==0.8.5
 future==0.18.2
 gitdb==4.0.5
 GitPython==3.1.12
-gnureadline==8.0.0
+#gnureadline==8.0.0
 google-api-core==1.25.1
-google-auth==1.25.0
+# 1.24.0 intead of 1.25.0 in pypi
+google-auth==1.24.0
 google-auth-oauthlib==0.4.2
 google-cloud-core==1.5.0
-google-cloud-storage==1.35.1
+# 1.35.0 instead of 1.35.1 in pypi
+google-cloud-storage==1.35.0
 google-crc32c==1.1.2
 google-resumable-media==1.2.0
 googleapis-common-protos==1.52.0
-graphviz==0.14.2
+python-graphviz==0.14.2
 grpcio==1.30.0
-grpcio-tools==1.30.0
+#  1.33.2 instead of 1.30.0 in pypi
+grpcio-tools== 1.33.2
 HeapDict==1.0.1
 humanfriendly==8.2
 idna==2.10
 imageio==2.9.0
 importlib-metadata==3.4.0
 iniconfig==1.1.1
-interface-meta==1.2.2
+interface_meta==1.2.2
 ipykernel==5.4.3
 ipython==7.16.1
-ipython-genutils==0.2.0
+ipython_genutils==0.2.0
 isodate==0.6.0
 jedi==0.18.0
 Jinja2==2.11.3
 jmespath==0.10.0
 joblib==1.0.0
 jsonschema==3.2.0
-jupyter-client==6.1.11
-jupyter-core==4.7.1
-jupyterlab-pygments==0.1.2
+jupyter_client==6.1.11
+jupyter_core==4.7.1
+jupyterlab_pygments==0.1.2
 kfp==1.0.4
 kfp-server-api==1.3.0
 kiwisolver==1.3.1
-kubernetes==11.0.0
-kubernetes-asyncio==12.0.1
-lifelines==0.25.8
+python-kubernetes==11.0.0
+kubernetes_asyncio==12.0.1
+# 0.25.9 instead of 0.25.8 in pypi
+lifelines==0.25.9
 lightgbm==2.3.1
 llvmlite==0.35.0
 locket==0.2.1
@@ -89,19 +94,18 @@ MarkupSafe==1.1.1
 matplotlib==3.3.4
 mergedeep==1.3.1
 mistune==0.8.4
-mlrun[complete]==0.6.0
 mpmath==1.1.0
-msgpack==1.0.2
+msgpack-python==1.0.2
 msrest==0.6.21
 multidict==5.1.0
 multipledispatch==0.6.0
 nbclient==0.5.1
 nbconvert==6.0.7
 nbformat==5.1.2
-nest-asyncio==1.5.1
+# 1.4.3 instead of 1.5.1 in pypi
+nest-asyncio==1.4.3
 networkx==2.5
 notebook==6.2.0
-nuclio-jupyter==0.8.9
 numba==0.52.0
 numexpr==2.7.2
 numpy==1.19.5
@@ -118,7 +122,7 @@ pickleshare==0.7.5
 Pillow==8.1.0
 plotly==4.14.3
 pluggy==0.13.1
-prometheus-client==0.9.0
+prometheus_client==0.9.0
 prompt-toolkit==3.0.14
 protobuf==3.14.0
 psutil==5.8.0
@@ -131,7 +135,6 @@ pyasn1-modules==0.2.8
 pycparser==2.20
 pydantic==1.7.3
 Pygments==2.7.4
-PyHive @ git+https://github.com/v3io/PyHive.git@461aa8d872e9569d63df8b137cfd1a690671880c
 PyMySQL==0.10.1
 pyod==0.8.6
 pyparsing==2.4.7
@@ -142,7 +145,8 @@ python-editor==1.0.4
 pytz==2021.1
 PyWavelets==1.1.1
 PyYAML==5.4.1
-pyzmq==22.0.2
+# 22.0.1 instead of 22.0.2 in pypi
+pyzmq==22.0.1
 regex==2020.11.13
 requests==2.25.1
 requests-oauthlib==1.3.0
@@ -166,8 +170,9 @@ sortedcontainers==2.3.0
 SQLAlchemy==1.3.23
 starlette==0.13.6
 statsmodels==0.12.2
-strip-hints==0.1.9
-suod==0.0.6
+# 0.1.8 instead of 0.1.9 in pypi
+strip-hints==0.1.8
+#suod==0.0.6
 sympy==1.6.2
 tabulate==0.8.3
 tblib==1.7.0
@@ -187,15 +192,13 @@ transformers==4.2.2
 typing-extensions==3.7.4.3
 ujson==4.0.2
 urllib3==1.26.3
-v3io==0.5.7
-v3io-frames==0.8.14
-v3io-generator==0.0.27.dev0
 wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==0.57.0
 Werkzeug==1.0.1
 wrapt==1.12.1
-xgboost==1.2.1
+# 1.3.0 instead of 1.2.1 in pypi
+xgboost==1.3.0
 yarl==1.6.3
 yellowbrick==1.2.1
 zict==2.0.0
