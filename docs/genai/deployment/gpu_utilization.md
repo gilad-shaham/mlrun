@@ -11,15 +11,15 @@ There are various ways to reduce the model size, starting by choosing a smaller 
 
 MLRun provides the ability to use any model and automate the pipeline. This gives you the ability to test different models and see which one works best for your use case.
 
-A common technique to reduce the model size is quantization Quantization is a technique that reduces the precision of the weights and activations of the model, which can lead to a significant reduction in memory usage and a speedup in inference time. The most common quantization technique is 8-bit quantization, which reduces the precision of the weights and activations from 32-bit floating point to 8-bit integers. This can lead to a 4x reduction in memory usage and a significant improvement in inference time.
+A common technique to reduce the model size is quantization. Quantization reduces the precision of the weights and activations of the model, which can lead to a significant reduction in memory usage and a speedup in inference time. The most common quantization is 8-bit quantization, which reduces the precision from 32-bit floating point to 8-bit integers. This can lead to a 4x reduction in memory usage and a significant improvement in inference time.
 
-In some cases, quantization can lead to a reduction in accuracy, so it is important to test the quantized model on a validation set to ensure that accuracy is not impacted.
+In some cases, quantization can lead to a significant reduction in accuracy, so it is important to test the quantized model on a validation set to ensure that accuracy is not severely impacted.
 
 MLRun provides the ability to automate the quantization process, which can help you quickly test different quantization values, and ensure that the quantization process happens automatically in your CI/CD pipeline.
 
 ### Attention
 
-In deep learning models, attention mechanisms are used to focus on different parts of the input sequence. Attention mechanisms can be computationally expensive and can be a bottleneck for running large models. One way to improve GPU utilization is to use flash attention, which is a more efficient attention mechanism that can lead to a significant speedup and memory reduction. Standard attention has memory quadratic in sequence length, whereas flash attention has memory linear in sequence length. In their implementation, they show a 10X memory savings at sequence length 2K, and 20X at 4K. As a result, flash attention can scale to much longer sequence lengths.
+In deep learning models, attention mechanisms are used to focus on different parts of the input sequence. Attention mechanisms can be computationally expensive and can be a bottleneck for running large models. One way to improve GPU utilization is to use flash attention, which is a more efficient attention mechanism that can lead to a significant speedup and memory reduction. Standard attention has memory quadratic in sequence length, whereas flash attention has memory linear in sequence length. This translates to a 10X memory savings at sequence length 2K, and 20X at 4K. As a result, flash attention can scale to much longer sequence lengths.
 
 ## Inference Optimization
 

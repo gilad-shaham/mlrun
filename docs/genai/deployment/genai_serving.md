@@ -3,7 +3,7 @@
 
 Serving a GenAI model is in essence the same as serving any other model. The main differences are with the inputs and outputs, which are usually unstructured (text or images) and the model is usually a transformer model. With MLRun you can serve any model, including pretrained models from the Hugging Face model hub as well as models fine-tuned with MLRun.
 
-Another common use case is to serve the model as part of an inference pipeline, where the model is used as part of a larger pipeline that includes data preprocessing, model execution, and post-processing. This can be done with MLRun using the real-time serving pipeline feature. So typically, prior to model inference, the context would be enriched using a vector database, then the input would be transformed to input tokens, and finally the model would be executed. Pre-processing and post-processing may also include guardrails to ensure the input is valid (for example, prevent the user from asking questions that attempt to exploit the model) as well as output processing, to verify the model does not hallucinate or includes data that may not be shared.
+Another common use case is to serve the model as part of an inference pipeline, where the model is used as part of a larger pipeline that includes data preprocessing, model execution, and post-processing. This is covered in the {ref}`GenAI serving graph section <genai-serving-graph>`.
 
 
 ## Serving using the function hub
@@ -164,8 +164,7 @@ mock_server = genai_serving.to_mock_server()
 
 result = mock_server.test(
     "/v2/models/mymodel",
-    body={"inputs": [{"prompt":"What is 1+1?"}
-                    ]}
+    body={"inputs": [{"prompt":"What is 1+1?"}]}
 )
 print(f"Output: {result['outputs']}")
 ```
@@ -186,7 +185,6 @@ To test the model we can use the HTTP trigger as follows
 ```python
 genai_serving.invoke(
     "/v2/models/mymodel",
-    body={"inputs": [{"prompt":"What is 1+1?"}
-                    ]}
+    body={"inputs": [{"prompt":"What is 1+1?"}]}
 )
 ```
