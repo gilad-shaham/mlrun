@@ -1,7 +1,7 @@
 (gpu-utilization)=
 # GPU Utilization
 
-GenAI models require GPU in order to run and they are usually large and thus require a lot of memory to run. However, GPU memory is limited and can be a bottleneck for running large models. In this section, we will discuss techniques to improve GPU utilization during inference and how to optimize it.
+GenAI models require GPU in order to run and they are usually large and thus require a lot of memory to run. However, GPU memory is limited and can be a bottleneck for running large models. In this section, we will discuss techniques to improve GPU utilization during inference and how to optimize it. The list here provides some important considerations, but this is not an exhaustive list.
 
 ## Optimization Techniques
 
@@ -19,15 +19,13 @@ MLRun provides the ability to automate the quantization process, which can help 
 
 ### Attention
 
-In deep learning models, attention mechanisms are used to focus on different parts of the input sequence. Attention mechanisms can be computationally expensive and can be a bottleneck for running large models. One way to improve GPU utilization is to use flash attention, which is a more efficient attention mechanism that can lead to a significant speedup and memory reduction. Standard attention has memory quadratic in sequence length, whereas flash attention has memory linear in sequence length. This translates to a 10X memory savings at sequence length 2K, and 20X at 4K. As a result, flash attention can scale to much longer sequence lengths.
+In deep learning models, attention mechanisms are used to focus on different parts of the input sequence. Attention mechanisms can be computationally expensive and can be a bottleneck for running large models. One way to improve GPU utilization is to use [FlashAttention](https://github.com/Dao-AILab/flash-attention), which is a more efficient attention mechanism that can lead to a significant speedup and memory reduction.  Standard attention has memory quadratic in sequence length, whereas FlashAttention has memory linear in sequence length. This translates to a 10X memory savings at sequence length 2K, and 20X at 4K. As a result, FlashAttention can scale to much longer sequence lengths. FlashAttention-2 offer faster attention with better parallelism and work partition.
 
 ## Inference Optimization
 
 ### Batch Size
 
-Batch size is an important hyperparameter that can have a significant impact on GPU utilization. Increasing the batch size can lead to better GPU utilization and can lead to a speedup in inference time. However, increasing the batch size leads to higher latency. Static batching is not as optimal as dynamic batching for LLMs as not all inputs produce completion tokens at the same time, leading to the longest input to halt the rest.
-
-The big improvement here comes not just from GPU utilization but by increasing throughput.
+Batch size is an important hyperparameter that can have a significant impact on GPU utilization. Increasing the batch size can lead to better GPU utilization and can lead to a speedup in inference time. However, increasing the batch size leads to higher latency. Static batching is not as optimal as dynamic batching for LLMs as not all inputs produce completion tokens at the same time, leading to the longest input to halt the rest. However, the big improvement here comes not just from GPU utilization but by increasing throughput.
 
 ### GPU allocation
 

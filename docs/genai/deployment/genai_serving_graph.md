@@ -32,7 +32,7 @@ class QueryLLM:
         return event
 ```
 
-Store the code above to `serve-llm.py`, then to create the serving function, run the following code:
+Store the code above to `src/serve-llm.py`, then to create the serving function, run the following code:
 
 ```python
 
