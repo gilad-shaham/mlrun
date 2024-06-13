@@ -31,6 +31,11 @@ Batch size is an important hyperparameter that can have a significant impact on 
 
 When running multiple models, it is important to allocate the GPUs dynamically per demand. MLRun uses Nuclio for serverless functions, which can free up the GPU when the function is not running or when it scales down. This can lead to better GPU utilization.
 
+### Using CPUs
+
+There are tasks related to GenAI that are better suited for CPUs, such as data preprocessing, loading the model, and processing the outputs. By offloading these tasks to CPUs, you can free up the GPU for running the model, which can lead to better GPU utilization. Therefore, rather than running the entire pipeline on the GPU, you can run the CPU tasks on the CPU and the model on the GPU. This usually means that the inference pipeline will run on different nodes, and MLRun can automatically distribute the pipeline across different nodes.
+
+
 ### Multiple GPUs
 
 When multiple GPUs are available, you can use multiple workers to run the model in parallel. This can lead to better GPU utilization and can lead to a speedup in inference time. Typically, orchestrating multiple GPUs requires significant engineering effort. MLRun provides the ability to run multiple workers in parallel. It uses automatically distribute the function code across multiple GPUs, but from the user's point of view, it is as simple as setting the number of workers to run in parallel.
