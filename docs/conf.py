@@ -50,6 +50,7 @@ version = version[: version.rfind(".")]
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx_immaterial",
     "myst_nb",
     "sphinx.ext.napoleon",
     "sphinx.ext.autodoc",
@@ -107,7 +108,41 @@ versionwarning_message_placeholder = "stable"
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = "sphinx_book_theme"
+html_theme = "sphinx_immaterial"
+
+html_theme_options = {
+    "palette": [
+        {
+            "media": "",  # Remove media query to allow manual toggling
+            "scheme": "default",
+            "primary": "custom",
+            "accent": "custom",
+            "toggle": {
+                "icon": "material/weather-night",
+                "name": "Switch to dark mode",
+            }
+        },
+        {
+            "media": "",  # Remove media query to allow manual toggling
+            "scheme": "slate",
+            "primary": "custom",
+            "accent": "custom",
+            "toggle": {
+                "icon": "material/weather-sunny", 
+                "name": "Switch to light mode",
+            }
+        }
+    ],
+    "features": [
+        "navigation.tracking",
+        "toc.follow",
+        "navigation.top"
+    ],
+    "font": {
+        "text": "poppins",
+    },
+}
+
 html_title = ""
 html_logo = "./MLRun_Character.png"
 html_favicon = "./favicon.ico"
@@ -121,19 +156,19 @@ autoclass_content = "both"
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 
-html_theme_options = {
-    "github_url": "https://github.com/mlrun/mlrun",
-    "repository_url": "https://github.com/mlrun/mlrun",
-    "use_repository_button": True,
-    "use_issues_button": True,
-    "use_edit_page_button": True,
-    "path_to_docs": "docs",
-    "home_page_in_toc": False,
-    "repository_branch": "development",
-    "show_navbar_depth": 1,
-    # "extra_navbar": 'By <a href="https://www.iguazio.com/">Iguazio</a>',  # https://github.com/executablebooks/sphinx-book-theme/issues/810
-    "extra_footer": "",
-}
+# html_theme_options = {
+#     "github_url": "https://github.com/mlrun/mlrun",
+#     "repository_url": "https://github.com/mlrun/mlrun",
+#     "use_repository_button": True,
+#     "use_issues_button": True,
+#     "use_edit_page_button": True,
+#     "path_to_docs": "docs",
+#     "home_page_in_toc": False,
+#     "repository_branch": "development",
+#     "show_navbar_depth": 1,
+#     # "extra_navbar": 'By <a href="https://www.iguazio.com/">Iguazio</a>',  # https://github.com/executablebooks/sphinx-book-theme/issues/810
+#     "extra_footer": "",
+# }
 
 html_sidebars = {
     "**": ["navbar-logo.html", "search-button-field.html", "sbt-sidebar-nav.html"]

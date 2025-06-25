@@ -26,3 +26,26 @@ div.navbar-brand-box {
     flex-basis: 18%;
     }
 }
+
+/* Light mode (default) */
+:root {
+  --md-primary-fg-color: #293445;
+  --md-primary-fg-color--light: #3e4b61;
+  --md-primary-fg-color--dark: #192130;
+  --md-accent-fg-color: #579ACA;
+  --md-accent-fg-color--transparent: rgba(87, 154, 202, 0.1);
+}
+
+/* Dark mode specific overrides */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #293445;
+  --md-primary-fg-color--light: #3e4b61; 
+  --md-primary-fg-color--dark: #192130;
+  --md-accent-fg-color: #579ACA;
+  --md-accent-fg-color--transparent: rgba(87, 154, 202, 0.1);
+  
+  /* Dark mode background and text colors */
+  --md-default-bg-color: #1e1e2e;
+  --md-default-fg-color: #e4e4e7;
+  --md-default-fg-color--light: #a1a1aa;
+}
