@@ -36,7 +36,7 @@ jobs:
       run: |
         version=$(grep "MLRUN_UV_VERSION ?=" Makefile | cut -d' ' -f3)
         echo version=$version >> "$GITHUB_OUTPUT"
-    - uses: astral-sh/setup-uv@445689ea25e0de0a23313031f5fe577c74ae45a1 # 6.3.0
+    - uses: astral-sh/setup-uv@2c7142f755d7b37bdaea8d226073714c732889fe # 6.4.2
       with:
         version: ${{ steps.uv-version.outputs.version }}
 
