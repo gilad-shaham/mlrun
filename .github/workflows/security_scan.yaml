@@ -110,7 +110,7 @@ jobs:
           fi
 
       - name: Scan image
-        uses: anchore/scan-action@be7a22da4f22dde446c4c4c099887ff5b256526c # 6.3.0
+        uses: anchore/scan-action@a5605eb0943e46279cb4fbd9d44297355d3520ab # 7.0.2
         id: scan
         with:
           image: ${{ steps.resolve_image_name.outputs.image_name }}
@@ -148,7 +148,7 @@ jobs:
           fi
 
       - name: Scan fs
-        uses: anchore/scan-action@be7a22da4f22dde446c4c4c099887ff5b256526c # 6.3.0
+        uses: anchore/scan-action@a5605eb0943e46279cb4fbd9d44297355d3520ab # 7.0.2
         id: scan
         with:
           path: "."
