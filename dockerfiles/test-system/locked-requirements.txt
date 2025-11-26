@@ -2458,9 +2458,9 @@ mistune==3.1.4 \
     --hash=sha256:93691da911e5d9d2e23bc54472892aff676df27a75274962ff9edc210364266d \
     --hash=sha256:b5a7f801d389f724ec702840c11d8fc48f2b33519102fc7ee739e8177b672164
     # via nbconvert
-mlflow==2.22.2 \
-    --hash=sha256:9ec973acaba48a259cea2559260450e91f5f6b09849e3342e0c1d1624fe48ab1 \
-    --hash=sha256:ca1a5b32369a8b03ee2d2dd4250c1908a3174184bea4159595de370e380e6ebe
+mlflow==3.5.0rc0 \
+    --hash=sha256:ba16511691d6bb031a7bd20bfca674e5c45dec4f36ed67a1895dce07811071b0 \
+    --hash=sha256:fe784a8f767ace6f84b42e64aeacac1c7e8d6b4c6272e7fb5f0cf3a30f477e5b
     # via -r extras-requirements.txt
 mlflow-skinny==2.22.2 \
     --hash=sha256:573e990ea5c572fb0d90cbbc77e5a1bf40b13bde9856685767b93c71c3d72a41 \
